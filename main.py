@@ -97,7 +97,7 @@ i9 = Inventario({"Granos de Café": 45, "Leche": 35, "Azúcar": 60, "Chocolate":
 i10 = Inventario({"Granos de Café": 40, "Leche": 30, "Azúcar": 55, "Chocolate": 15})
 
 while True:
-    print("\n--SISTEMA DE MENÚ DE LA CAFETERÍA 'JAUNITO ALCACHOFA'--\n")
+    print("\n--SISTEMA DE MENÚ DE LA CAFETERÍA 'JUANITO ALCACHOFA'--\n")
     print("1. PERSONA")
     print("2. CLIENTE")
     print("3. EMPLEADO")
