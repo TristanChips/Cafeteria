@@ -1,4 +1,4 @@
-from modelos import *
+from models import *
 
 # --- PERSONAS ---
 p1 = Persona(1001, "Leo", "leo@mail.com")
@@ -109,7 +109,6 @@ while True:
     print("9. SALIR")
 
     x = int(input("\nSELECCIONA UNA CLASE PARA VER SUS OBJETOS Y MÉTODOS\n"))
-    
     match x:
         case 1:
             print("\n--------PERSONA--------\n")
