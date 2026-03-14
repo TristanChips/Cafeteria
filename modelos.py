@@ -1,226 +1,252 @@
-class Person():
-    def __init__(self,id_person,name,email):
-        self.name=name
-        self.email=email
-        self.id_person=id_person
-    def login(self,email):
-        if self.email==email:
-            print(f"\nWelcome {self.name} to our online system\n")
+class Persona():
+    def __init__(self, id_persona, nombre, correo):
+        self.nombre = nombre
+        self.correo = correo
+        self.id_persona = id_persona
+
+    def iniciar_sesion(self, correo):
+        if self.correo == correo:
+            print(f"\nBienvenido {self.nombre} a nuestro sistema en línea\n")
         else:
-             print(f"\nYour email is incorrect or you did not register yet\n")
-    def update_data(self,id_person,name,email):
-        self.name=name
-        self.email=email
-        self.id_person=id_person
-        print(f"\nThe data was updated succesfully\n")
-    def print_object(self):
-        print(f"\nID:{self.id_person}\t|\t{self.name}\t|\t{self.email}\t\n")
-class Customer(Person):
-    list_cus=[]
-    def __init__(self,id_person,name,email,Fidelity_points,Purchase_History):
-       super().__init__(id_person,name,email)
-       self.Fidelity_points=Fidelity_points
-       self.Purchase_History=Purchase_History
-       Customer.list_cus.append(self)
-    def do_purchase(self):
-        print(f"\nStarting Purchase process..\n")
-        print(f"\nCustomer:{self.name} (Points:{self.Fidelity_points})")
-        print(f"\nWhat do you can to buy?\n")
-        list_pp={}
+            print(f"\nTu correo es incorrecto o aún no te has registrado\n")
+
+    def actualizar_datos(self, id_persona, nombre, correo):
+        self.nombre = nombre
+        self.correo = correo
+        self.id_persona = id_persona
+        print(f"\nLos datos se actualizaron correctamente\n")
+
+    def imprimir_objeto(self):
+        print(f"\nID:{self.id_persona}\t|\t{self.nombre}\t|\t{self.correo}\t\n")
+
+class Cliente(Persona):
+    lista_clientes = []
+    def __init__(self, id_persona, nombre, correo, puntos_fidelidad, historial_compras):
+       super().__init__(id_persona, nombre, correo)
+       self.puntos_fidelidad = puntos_fidelidad
+       self.historial_compras = historial_compras
+       Cliente.lista_clientes.append(self)
+
+    def realizar_compra(self):
+        print(f"\nIniciando proceso de compra...\n")
+        print(f"\nCliente: {self.nombre} (Puntos: {self.puntos_fidelidad})")
+        print(f"\n¿Qué deseas comprar?\n")
+        lista_productos_compra = {}
         while True:
-            print(f"\nSelect one of the following options:\n")
-            print(f"\n1.Drinkings\n")
-            print(f"\n2.Desserts\n")
-            print(f"\n3.That's all\n")
-            x=int(input("\n"))
+            print(f"\nSelecciona una de las siguientes opciones:\n")
+            print(f"1. Bebidas")
+            print(f"2. Postres")
+            print(f"3. Es todo")
+            x = int(input("\n"))
             
             match x:
                 case 1:
-                    print("\nThe available drinkings are:\n")
-                    for drink in Drinking.list:
-                        drink.print_object()
-                    x1=int(input("How many different types of products do you want?"))
+                    print("\nLas bebidas disponibles son:\n")
+                    for bebida in Bebida.lista:
+                        bebida.imprimir_objeto()
+                    x1 = int(input("¿Cuántos tipos de productos diferentes deseas? "))
                     for i in range(x1):
-                        list_pp[i]=0
-                        print("Enter the name of the product")
-                        name_=input("\n")
-                        z=int(input("How many?"))
-                        if name_ in list_pp:#check if the id_ already exist
-                            list_pp[name_]+=z
-                            del list_pp[i]#deletes the unnecesary item
+                        lista_productos_compra[i] = 0
+                        nombre_ = input("Introduce el nombre del producto: ")
+                        z = int(input("¿Cuántos?: "))
+                        if nombre_ in lista_productos_compra:
+                            lista_productos_compra[nombre_] += z
+                            del lista_productos_compra[i]
                         else:
-                            list_pp[name_]=list_pp.pop(i)#change the key and deletes it
-                            list_pp[name_]=z
+                            lista_productos_compra[nombre_] = lista_productos_compra.pop(i)
+                            lista_productos_compra[nombre_] = z
                 case 2:
-                    print("\nThe available desserts are:\n")
-                    for dessert in Dessert.list:
-                        dessert.print_object()
-                    x11=int(input("How many different types of products do you want?"))
+                    print("\nLos postres disponibles son:\n")
+                    for postre in Postre.lista:
+                        postre.imprimir_objeto()
+                    x11 = int(input("¿Cuántos tipos de productos diferentes deseas? "))
                     for i in range(x11):
-                        list_pp[i]=0
-                        print("Enter the name of the product")
-                        name_1=input("\n")
-                        z1=int(input("How many?"))
-                        if name_1 in list_pp:#check if the id_ already exist
-                            list_pp[name_1]+=z1
-                            del list_pp[i]#deletes the unnecesary item
+                        lista_productos_compra[i] = 0
+                        nombre_1 = input("Introduce el nombre del producto: ")
+                        z1 = int(input("¿Cuántos?: "))
+                        if nombre_1 in lista_productos_compra:
+                            lista_productos_compra[nombre_1] += z1
+                            del lista_productos_compra[i]
                         else:
-                            list_pp[name_1]=list_pp.pop(i)#change the key and deletes it
-                            list_pp[name_1]=z1
+                            lista_productos_compra[nombre_1] = lista_productos_compra.pop(i)
+                            lista_productos_compra[nombre_1] = z1
                 case 3:
-                    print("Thanks for your purchase")
+                    print("Gracias por tu compra")
                     break                 
-        Purchase_=Purchase(list_pp,"WITHOUT PAY")
-        Purchase_.Calculate_total()
-        self.Purchase_History.append(Purchase_)
-        print("\nVISUALIZE PURCHASE\n")
-        Purchase_.print_object()
-        list_pp.clear()                
-    def print_object(self):
-        print(f"\nID:{self.id_person}\t|\t{self.name}\t|\t{self.email}\t|\tPOINTS:{self.Fidelity_points}\t\n")
-    def consult_History(self):
-        print(f"\nThe current purchases are:\n")
-        for p in self.Purchase_History:
-            p.print_object()
-    def use_points(self):
-        print(f"\nSearching customer with ID: {self.id_person}\n")
-        if(self.Fidelity_points>=160):
-                    print(f"You can get a free coffee!")
-        else:
-                    print(f"You need more points....")
-class Employee(Person):
-     def __init__(self,id_person,id_employee,name,email,Rol):
-       super().__init__(id_person,name,email)
-       self.Rol=Rol
-       self.id_employee=id_employee
-     def update_Inventory(self,numb,product,inve):
-       print(f"Inventory before the Update of {numb} {product}:")
-       inve.print_object()
-       for keys,p in inve.ingredients.items():
-           if keys==product:
-                inve.ingredients[keys]=numb
-       print("The inventory was changed")
-       inve.print_object()
-     def change_status(self,id_Purchase_):
-         for c in Purchase.list_Purchases:
-             if(c.id_Purchase==id_Purchase_):
-                 t=input("Introduce the new status for this purchase")
-                 c.status=t
-                 print("Your change was submitted:")
-                 c.print_object()
-     def print_object(self):
-        print(f"\nID:{self.id_person}\t|\t{self.name}\t|\t{self.email}\t|\tID_EMPLOYEE:{self.id_employee}\t|\tROL:{self.Rol}\t\n")
-class Base_product():
-    list_products=[]
-    def __init__(self,id_product,name,base_price):
-        self.name=name
-        self.id_product=id_product
-        self.base_price=base_price
-    def print_object(self):
-        print(f"\nID:{self.id_product}\t|\t{self.name}\t|\tBASE PRICE: {self.base_price}\t\n")
-class Drinking(Base_product):
-    list=[]
-    list_general_modifiers={"Almond Milk":50,"Oat Milk":40,"Soy Milk":20,"Extra Sugar":10,"Extra ice":80}
-    def __init__(self,id_product,name,base_price,size,temperature,modifiers):
-       super().__init__(id_product,name,base_price)
-       self.size=size
-       self.temperature=temperature
-       self.modifiers=modifiers
-       Base_product.list_products.append(self)
-       Drinking.list.append(self)
-    def add_Extra(self):
-        print(f"Do You want to add some modifiers to your drinking?")
-        t=input()
-        if(t=="Yes"):
-                f=int(input("How many?"))
-                for i in range(f):
-                    print("The avaialable modifiers are")
-                    for mod,value in Drinking.list_general_modifiers.items():
-                        print(f"-{mod}|\t-${value}\n")
-                    g=input("Select one")
-                    self.modifiers.append(g)
-                print("You have selected all your extras!")
-                for g in self.modifiers:
-                    print(f"Modifier:{g}")
-        else:
-            print("Dont worry!, the taste is going to be delicious even if it doesn't have extras")
-    def Calculate_Final_Price(self):
-        print(f"Your initial price is {self.base_price}\n")
-        for g in self.modifiers:
-            for mod,value in Drinking.list_general_modifiers.items():
-                            if g==mod:
-                                self.base_price+=value
-        if(len(self.modifiers)!=0):
-            print("You selected extras")
-            for g in self.modifiers:
-                    print(f"Modifier:{g}\n")
-            print(f"All Your extras were added, your new price is {self.base_price}")
-        else:
-            print("Your price continues being the same, beacuse you don't selected extras")
-    def print_object(self):
-        print(f"\nID:{self.id_product}  | {self.name} | BASE PRICE: {self.base_price} | SIZE:{self.size} | TEMPERATURE: {self.temperature}  | MODIFIERS :{self.modifiers} \n")
-class Dessert(Base_product):
-  list=[]
-  def __init__(self,id_product,name,base_price,isVegan,Without_Gluten):
-       super().__init__(id_product,name,base_price)
-       self.isVegan=isVegan
-       self.Without_Gluten=Without_Gluten
-       Base_product.list_products.append(self)
-       Dessert.list.append(self)
-  def print_object(self):
-         print(f"\nID:{self.id_product}  | {self.name} | BASE PRICE: {self.base_price} | IS VEGAN?:{self.isVegan} | DOESN'T IT HAVE GLUTEN?: {self.Without_Gluten}\n")
-class Purchase():
-    counter=0
-    list_Purchases=[]
-    def __init__(self,products,status):
-        Purchase.counter+=1
-        self.products=products
-        self.status=status
-        self.total=0
-        self.id_Purchase=Purchase.counter
-        Purchase.list_Purchases.append(self)
-    def Calculate_total(self):
-       for p in self.products:
-           for t in Base_product.list_products:
-               if p==t.name:
-                    self.total+=(self.products[p]*(t.base_price))
-       print(f"Your final total is {self.total}")
-       return self.total
-    def Check_stock(self,inve,ingg):
-        if inve.ingredients[ingg]<=0:
-                print("There isn't enough ingredients")
-                return False
-        else:    
-            print("Everything is good")
-            return True
-    def print_object(self):
-        if self.total==0:
-            for p in self.products:
-                for t in Base_product.list_products:
-                    if p==t.name:
-                        self.total+=(self.products[p]*(t.base_price))
-        print(f"\nPRODUCTS:")
-        for p,k in self.products.items():
-            print(f"PRODUCT {p} : {k} ")
-        print(f"STATUS {self.status} \t|\tTOTAL: {self.total}\t \n")
-class Inventory():
-    def __init__(self,ingredients):
-        self.ingredients=ingredients
-    def reduce_Stock(self,ing,amount):
-        print(f"Inventory before the reduction of {amount} {ing}:")
-        self.print_object()
-        for l,p in self.ingredients.items():
-             if l==ing:
-                 self.ingredients[l]-=amount
-        print(f"Your stock was changed")
-        self.print_object()
-    def notify_No_stock(self,ingg):
-            if self.ingredients[ingg]==0:
-                print(f"There isn't stock in {ingg}")
-            else:
-                 print(f"There is still stock in {ingg}")
-    def print_object(self):
-         for l,p in self.ingredients.items():
-            print(f"INGREDIENT:{l}-{self.ingredients[l]}\t")
+        nueva_compra = Compra(lista_productos_compra, "SIN PAGAR")
+        nueva_compra.calcular_total()
+        self.historial_compras.append(nueva_compra)
+        print("\nVISUALIZAR COMPRA\n")
+        nueva_compra.imprimir_objeto()
+        lista_productos_compra.clear()                
 
+    def imprimir_objeto(self):
+        print(f"\nID:{self.id_persona}\t|\t{self.nombre}\t|\t{self.correo}\t|\tPUNTOS:{self.puntos_fidelidad}\t\n")
+
+    def consultar_historial(self):
+        print(f"\nLas compras actuales son:\n")
+        for p in self.historial_compras:
+            p.imprimir_objeto()
+
+    def usar_puntos(self):
+        print(f"\nBuscando cliente con ID: {self.id_persona}\n")
+        if(self.puntos_fidelidad >= 160):
+            print(f"¡Puedes obtener un café gratis!")
+        else:
+            print(f"Necesitas más puntos....")
+
+class Empleado(Persona):
+     def __init__(self, id_persona, id_empleado, nombre, correo, rol):
+       super().__init__(id_persona, nombre, correo)
+       self.rol = rol
+       self.id_empleado = id_empleado
+
+     def actualizar_inventario(self, cantidad, producto, inv):
+       print(f"Inventario antes de la actualización de {cantidad} {producto}:")
+       inv.imprimir_objeto()
+       for clave in inv.ingredientes:
+           if clave == producto:
+                inv.ingredientes[clave] = cantidad
+       print("El inventario ha sido modificado")
+       inv.imprimir_objeto()
+
+     def cambiar_estatus(self, id_compra_):
+         for c in Compra.lista_compras:
+             if(c.id_compra == id_compra_):
+                 t = input("Introduce el nuevo estatus para esta compra: ")
+                 c.estatus = t
+                 print("Tu cambio ha sido enviado:")
+                 c.imprimir_objeto()
+
+     def imprimir_objeto(self):
+        print(f"\nID:{self.id_persona}\t|\t{self.nombre}\t|\t{self.correo}\t|\tID_EMPLEADO:{self.id_empleado}\t|\tROL:{self.rol}\t\n")
+
+class Producto_base():
+    lista_productos = []
+    def __init__(self, id_producto, nombre, precio_base):
+        self.nombre = nombre
+        self.id_producto = id_producto
+        self.precio_base = precio_base
+
+    def imprimir_objeto(self):
+        print(f"\nID:{self.id_producto}\t|\t{self.nombre}\t|\tPRECIO BASE: {self.precio_base}\t\n")
+
+class Bebida(Producto_base):
+    lista = []
+    modificadores_generales = {"Leche de Almendras": 50, "Leche de Avena": 40, "Leche de Soya": 20, "Azúcar Extra": 10, "Hielo Extra": 80}
+    def __init__(self, id_producto, nombre, precio_base, tamano, temperatura, modificadores):
+       super().__init__(id_producto, nombre, precio_base)
+       self.tamano = tamano
+       self.temperatura = temperatura
+       self.modificadores = modificadores
+       Producto_base.lista_productos.append(self)
+       Bebida.lista.append(self)
+
+    def añadir_extra(self):
+        print(f"¿Deseas añadir modificadores a tu bebida? (Si/No)")
+        t = input()
+        if(t.lower() == "si"):
+                f = int(input("¿Cuántos? "))
+                for i in range(f):
+                    print("Los modificadores disponibles son:")
+                    for mod, valor in Bebida.modificadores_generales.items():
+                        print(f"-{mod}|\t-${valor}\n")
+                    g = input("Selecciona uno: ")
+                    self.modificadores.append(g)
+                print("¡Has seleccionado todos tus extras!")
+        else:
+            print("¡No te preocupes!, el sabor será delicioso incluso sin extras")
+
+    def calcular_precio_final(self):
+        print(f"Tu precio inicial es {self.precio_base}\n")
+        for g in self.modificadores:
+            if g in Bebida.modificadores_generales:
+                self.precio_base += Bebida.modificadores_generales[g]
+        
+        if(len(self.modificadores) != 0):
+            print("Seleccionaste extras:")
+            for g in self.modificadores:
+                    print(f"Modificador: {g}\n")
+            print(f"Todos tus extras fueron añadidos, tu nuevo precio es {self.precio_base}")
+        else:
+            print("Tu precio sigue siendo el mismo porque no seleccionaste extras")
+
+    def imprimir_objeto(self):
+        print(f"\nID:{self.id_producto}  | {self.nombre} | PRECIO BASE: {self.precio_base} | TAMAÑO:{self.tamano} | TEMPERATURA: {self.temperatura}  | MODIFICADORES: {self.modificadores} \n")
+
+class Postre(Producto_base):
+  lista = []
+  def __init__(self, id_producto, nombre, precio_base, esVegano, sinGluten):
+       super().__init__(id_producto, nombre, precio_base)
+       self.esVegano = esVegano
+       self.sinGluten = sinGluten
+       Producto_base.lista_productos.append(self)
+       Postre.lista.append(self)
+
+  def imprimir_objeto(self):
+         print(f"\nID:{self.id_producto}  | {self.nombre} | PRECIO BASE: {self.precio_base} | ¿ES VEGANO?: {self.esVegano} | ¿SIN GLUTEN?: {self.sinGluten}\n")
+
+class Compra():
+    contador = 0
+    lista_compras = []
+    def __init__(self, productos, estatus):
+        Compra.contador += 1
+        self.productos = productos
+        self.estatus = estatus
+        self.total = 0
+        self.id_compra = Compra.contador
+        Compra.lista_compras.append(self)
+
+    def calcular_total(self):
+       for p in self.productos:
+           for t in Producto_base.lista_productos:
+               if p == t.nombre:
+                    self.total += (self.productos[p] * (t.precio_base))
+       print(f"Tu total final es {self.total}")
+       return self.total
+
+    def verificar_stock(self, inv, ingrediente):
+        # Aquí restauré el ciclo for original que tenías para que sea idéntico en longitud
+        for clave, valor in inv.ingredientes.items():
+            if clave == ingrediente:
+                if valor <= 0:
+                    print("No hay suficientes ingredientes")
+                    return False
+                else:    
+                    print("Todo está en orden")
+                    return True
+
+    def imprimir_objeto(self):
+        if self.total == 0:
+            for p in self.productos:
+                for t in Producto_base.lista_productos:
+                    if p == t.nombre:
+                        self.total += (self.productos[p] * (t.base_price))
+        print(f"\nPRODUCTOS:")
+        for p, k in self.productos.items():
+            print(f"PRODUCTO {p} : {k} ")
+        print(f"ESTATUS {self.estatus} \t|\tTOTAL: {self.total}\t \n")
+
+class Inventario():
+    def __init__(self, ingredientes):
+        self.ingredientes = ingredientes
+
+    def reducir_stock(self, ing, cantidad):
+        print(f"Inventario antes de la reducción de {cantidad} {ing}:")
+        self.imprimir_objeto()
+        for l, p in self.ingredientes.items():
+             if l == ing:
+                 self.ingredientes[l] -= cantidad
+        print(f"Tu stock ha sido modificado")
+        self.imprimir_objeto()
+
+    def notificar_sin_stock(self, ingrediente):
+            if self.ingredientes[ingrediente] == 0:
+                print(f"No hay stock de {ingrediente}")
+            else:
+                 print(f"Todavía hay stock de {ingrediente}")
+
+    def imprimir_objeto(self):
+         for l, p in self.ingredientes.items():
+            print(f"INGREDIENTE:{l}-{p}\t")
          print("\n")

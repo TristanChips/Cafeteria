@@ -1,396 +1,337 @@
-from models import *
+from modelos import *
 
-p1 = Person(1001, "John", "john@mail.com")
-p2 = Person(1002, "Alice", "alice@mail.com")
-p3 = Person(1003, "Bob", "bob@mail.com")
-p4 = Person(1004, "Clara", "clara@mail.com")
-p5 = Person(1005, "David", "david@mail.com")
-p6 = Person(1006, "Emma", "emma@mail.com")
-p7 = Person(1007, "Leo", "leo@mail.com")
-p8 = Person(1008, "Nina", "nina@mail.com")
-p9 = Person(1009, "Oscar", "oscar@mail.com")
-p10 = Person(1010, "Paula", "paula@mail.com")
+# --- PERSONAS (Orden cambiado, manteniendo nombre-correo) ---
+p1 = Persona(1001, "Leo", "leo@mail.com")
+p2 = Persona(1002, "Nina", "nina@mail.com")
+p3 = Persona(1003, "John", "john@mail.com")
+p4 = Persona(1004, "Alice", "alice@mail.com")
+p5 = Persona(1005, "Paula", "paula@mail.com")
+p6 = Persona(1006, "Emma", "emma@mail.com")
+p7 = Persona(1007, "Oscar", "oscar@mail.com")
+p8 = Persona(1008, "Bob", "bob@mail.com")
+p9 = Persona(1009, "Clara", "clara@mail.com")
+p10 = Persona(1010, "David", "david@mail.com")
 
+# --- CLIENTES (Nombres y correos en diferentes posiciones) ---
+c1 = Cliente("C001", "Daniel Vega", "daniel@gmail.com", 60, [])
+c2 = Cliente("C002", "Luis Perez", "luis@gmail.com", 200, [])
+c3 = Cliente("C003", "Sofia Ramirez", "sofia@gmail.com", 75, [])
+c4 = Cliente("C004", "Carlos Diaz", "carlos@gmail.com", 300, [])
+c5 = Cliente("C005", "Ana Lopez", "ana@gmail.com", 120, [])
+c6 = Cliente("C006", "Pedro Gomez", "pedro@gmail.com", 180, [])
+c7 = Cliente("C007", "Maria Torres", "maria@gmail.com", 90, [])
+c8 = Cliente("C008", "Miguel Castro", "miguel@gmail.com", 220, [])
+c9 = Cliente("C009", "Valeria Ortiz", "valeria@gmail.com", 140, [])
+c10 = Cliente("C010", "Laura Ruiz", "laura@gmail.com", 50, [])
 
-c1 = Customer("C001","Ana Lopez","ana@gmail.com",120,[])
-c2 = Customer("C002","Luis Perez","luis@gmail.com",200,[])
-c3 = Customer("C003","Maria Torres","maria@gmail.com",90,[])
-c4 = Customer("C004","Carlos Diaz","carlos@gmail.com",300,[])
-c5 = Customer("C005","Laura Ruiz","laura@gmail.com",50,[])
-c6 = Customer("C006","Pedro Gomez","pedro@gmail.com",180,[])
-c7 = Customer("C007","Sofia Ramirez","sofia@gmail.com",75,[])
-c8 = Customer("C008","Miguel Castro","miguel@gmail.com",220,[])
-c9 = Customer("C009","Valeria Ortiz","valeria@gmail.com",140,[])
-c10 = Customer("C010","Daniel Vega","daniel@gmail.com",60,[])
+# --- EMPLEADOS (Reordenados) ---
+e1 = Empleado("P001", "E001", "Lucia Herrera", "lucia@cafe.com", "MESERO")
+e2 = Empleado("P002", "E002", "Jorge Martinez", "jorge@cafe.com", "BARISTA")
+e3 = Empleado("P003", "E003", "Gabriela Soto", "gabriela@cafe.com", "BARISTA")
+e4 = Empleado("P004", "E004", "Patricia Luna", "patricia@cafe.com", "BARISTA")
+e5 = Empleado("P005", "E005", "Raul Mendoza", "raul@cafe.com", "MESERO")
+e6 = Empleado("P006", "E006", "Elena Sanchez", "elena@cafe.com", "MESERO")
+e7 = Empleado("P007", "E007", "Fernando Rios", "fernando@cafe.com", "MESERO")
+e8 = Empleado("P008", "E008", "Diana Vargas", "diana@cafe.com", "GERENTE")
+e9 = Empleado("P009", "E009", "Andres Pineda", "andres@cafe.com", "BARISTA")
+e10 = Empleado("P010", "E010", "Ricardo Flores", "ricardo@cafe.com", "GERENTE")
 
-e1 = Employee("P001","E001","Jorge Martinez","jorge@cafe.com","BARISTA")
-e2 = Employee("P002","E002","Elena Sanchez","elena@cafe.com","SERVER")
-e3 = Employee("P003","E003","Ricardo Flores","ricardo@cafe.com","MANAGER")
-e4 = Employee("P004","E004","Patricia Luna","patricia@cafe.com","BARISTA")
-e5 = Employee("P005","E005","Raul Mendoza","raul@cafe.com","SERVER")
-e6 = Employee("P006","E006","Gabriela Soto","gabriela@cafe.com","BARISTA")
-e7 = Employee("P007","E007","Fernando Rios","fernando@cafe.com","SERVER")
-e8 = Employee("P008","E008","Diana Vargas","diana@cafe.com","MANAGER")
-e9 = Employee("P009","E009","Andres Pineda","andres@cafe.com","BARISTA")
-e10 = Employee("P010","E010","Lucia Herrera","lucia@cafe.com","SERVER")
+# --- PRODUCTOS BASE ---
+bp1 = Producto_base("BP001", "Sandwich", 55)
+bp2 = Producto_base("BP002", "Bagel", 40)
+bp3 = Producto_base("BP003", "Croissant", 45)
+bp4 = Producto_base("BP004", "Barra de Granola", 25)
+bp5 = Producto_base("BP005", "Copa de Yogur", 35)
+bp6 = Producto_base("BP006", "Tazón de Fruta", 50)
+bp7 = Producto_base("BP007", "Barra Energética", 30)
+bp8 = Producto_base("BP008", "Tostada", 20)
+bp9 = Producto_base("BP009", "Sandwich de Jamón", 65)
+bp10 = Producto_base("BP010", "Sandwich de Queso", 60)
 
-bp1 = Base_product("BP001","Sandwich",55)
-bp2 = Base_product("BP002","Bagel",40)
-bp3 = Base_product("BP003","Croissant",45)
-bp4 = Base_product("BP004","Granola Bar",25)
-bp5 = Base_product("BP005","Yogurt Cup",35)
-bp6 = Base_product("BP006","Fruit Bowl",50)
-bp7 = Base_product("BP007","Energy Bar",30)
-bp8 = Base_product("BP008","Toast",20)
-bp9 = Base_product("BP009","Ham Sandwich",65)
-bp10 = Base_product("BP010","Cheese Sandwich",60)
+# --- BEBIDAS ---
+d1 = Bebida("D001", "Espresso", 40, "CHICO", "CALIENTE", [])
+d2 = Bebida("D002", "Latte", 60, "MEDIANO", "CALIENTE", [])
+d3 = Bebida("D003", "Cappuccino", 65, "MEDIANO", "CALIENTE", [])
+d4 = Bebida("D004", "Mocha", 70, "GRANDE", "CALIENTE", [])
+d5 = Bebida("D005", "Americano", 50, "MEDIANO", "CALIENTE", [])
+d6 = Bebida("D006", "Cold Brew", 75, "GRANDE", "FRÍO", [])
+d7 = Bebida("D007", "Iced Latte", 70, "GRANDE", "FRÍO", [])
+d8 = Bebida("D008", "Caramel Macchiato", 80, "GRANDE", "CALIENTE", [])
+d9 = Bebida("D009", "Flat White", 65, "MEDIANO", "CALIENTE", [])
+d10 = Bebida("D010", "Vanilla Latte", 75, "GRANDE", "CALIENTE", [])
 
-d1 = Drinking("D001","Espresso",40,"SMALL","HOT",[])
-d2 = Drinking("D002","Latte",60,"MEDIUM","HOT",[])
-d3 = Drinking("D003","Cappuccino",65,"MEDIUM","HOT",[])
-d4 = Drinking("D004","Mocha",70,"LARGE","HOT",[])
-d5 = Drinking("D005","Americano",50,"MEDIUM","HOT",[])
-d6 = Drinking("D006","Cold Brew",75,"LARGE","COLD",[])
-d7 = Drinking("D007","Iced Latte",70,"LARGE","COLD",[])
-d8 = Drinking("D008","Caramel Macchiato",80,"LARGE","HOT",[])
-d9 = Drinking("D009","Flat White",65,"MEDIUM","HOT",[])
-d10 = Drinking("D010","Vanilla Latte",75,"LARGE","HOT",[])
+# --- POSTRES ---
+ds1 = Postre("DS001", "Cheesecake", 90, False, False)
+ds2 = Postre("DS002", "Pastel de Chocolate", 85, False, False)
+ds3 = Postre("DS003", "Brownie", 50, False, False)
+ds4 = Postre("DS004", "Galleta Vegana", 45, True, True)
+ds5 = Postre("DS005", "Pay de Manzana", 70, False, False)
+ds6 = Postre("DS006", "Pastel de Zanahoria", 80, False, False)
+ds7 = Postre("DS007", "Muffin Sin Gluten", 55, False, True)
+ds8 = Postre("DS008", "Tiramisu", 95, False, False)
+ds9 = Postre("DS009", "Cupcake", 40, False, False)
+ds10 = Postre("DS010", "Brownie Vegano", 60, True, True)
 
-ds1 = Dessert("DS001","Cheesecake",90,False,False)
-ds2 = Dessert("DS002","Chocolate Cake",85,False,False)
-ds3 = Dessert("DS003","Brownie",50,False,False)
-ds4 = Dessert("DS004","Vegan Cookie",45,True,True)
-ds5 = Dessert("DS005","Apple Pie",70,False,False)
-ds6 = Dessert("DS006","Carrot Cake",80,False,False)
-ds7 = Dessert("DS007","Gluten Free Muffin",55,False,True)
-ds8 = Dessert("DS008","Tiramisu",95,False,False)
-ds9 = Dessert("DS009","Cupcake",40,False,False)
-ds10 = Dessert("DS010","Vegan Brownie",60,True,True)
+# --- COMPRAS ---
+pp1 = Compra({"Espresso": 2, "Brownie": 1}, "PENDIENTE")
+pp2 = Compra({"Latte": 1, "Cheesecake": 1}, "PENDIENTE")
+pp3 = Compra({"Cappuccino": 3}, "PREPARANDO")
+pp4 = Compra({"Mocha": 2, "Cupcake": 2}, "ENTREGADO")
+pp5 = Compra({"Americano": 1}, "PENDIENTE")
+pp6 = Compra({"Cold Brew": 2, "Pay de Manzana": 1}, "PREPARANDO")
+pp7 = Compra({"Iced Latte": 1}, "ENTREGADO")
+pp8 = Compra({"Caramel Macchiato": 2}, "PENDIENTE")
+pp9 = Compra({"Flat White": 1, "Brownie": 2}, "PREPARANDO")
+pp10 = Compra({"Vanilla Latte": 3}, "ENTREGADO")
 
-pp1 = Purchase({"Espresso":2,"Brownie":1},"PENDING")
-pp2 = Purchase({"Latte":1,"Cheesecake":1},"PENDING")
-pp3 = Purchase({"Cappuccino":3},"PREPARING")
-pp4 = Purchase({"Mocha":2,"Cupcake":2},"DELIVERED")
-pp5 = Purchase({"Americano":1},"PENDING")
-pp6 = Purchase({"Cold Brew":2,"Apple Pie":1},"PREPARING")
-pp7 = Purchase({"Iced Latte":1},"DELIVERED")
-pp8 = Purchase({"Caramel Macchiato":2},"PENDING")
-pp9 = Purchase({"Flat White":1,"Brownie":2},"PREPARING")
-pp10 = Purchase({"Vanilla Latte":3},"DELIVERED")
-
-i1 = Inventory({
-    "Coffee Beans":100,
-    "Milk":80,
-    "Sugar":120,
-    "Chocolate":50,
-    "Flour":60,
-    "Eggs":90,
-    "Butter":70,
-    "Almond Milk":40
-})
-#The activity says that is neccessary to create 10 obejct of each class, but In the Inventory class, it's not the best choice to have more than one inventory
-i2 = Inventory({
-    "Coffee Beans":100,
-    "Milk":80,
-    "Sugar":120,
-    "Chocolate":50
-})
-
-i3 = Inventory({
-    "Coffee Beans":90,
-    "Milk":70,
-    "Sugar":110,
-    "Chocolate":45
-})
-
-i4 = Inventory({
-    "Coffee Beans":85,
-    "Milk":65,
-    "Sugar":105,
-    "Chocolate":40
-})
-
-i5 = Inventory({
-    "Coffee Beans":75,
-    "Milk":60,
-    "Sugar":95,
-    "Chocolate":35
-})
-
-i6= Inventory({
-    "Coffee Beans":60,
-    "Milk":50,
-    "Sugar":90,
-    "Chocolate":30
-})
-
-i7 = Inventory({
-    "Coffee Beans":55,
-    "Milk":45,
-    "Sugar":80,
-    "Chocolate":25
-})
-
-i8 = Inventory({
-    "Coffee Beans":50,
-    "Milk":40,
-    "Sugar":70,
-    "Chocolate":20
-})
-
-i9 = Inventory({
-    "Coffee Beans":45,
-    "Milk":35,
-    "Sugar":60,
-    "Chocolate":18
-})
-
-i10 = Inventory({
-    "Coffee Beans":40,
-    "Milk":30,
-    "Sugar":55,
-    "Chocolate":15
-})
-
+# --- INVENTARIOS ---
+i1 = Inventario({"Granos de Café": 100, "Leche": 80, "Azúcar": 120, "Chocolate": 50})
+i2 = Inventario({"Granos de Café": 100, "Leche": 80, "Azúcar": 120, "Chocolate": 50})
+i3 = Inventario({"Granos de Café": 90, "Leche": 70, "Azúcar": 110, "Chocolate": 45})
+i4 = Inventario({"Granos de Café": 85, "Leche": 65, "Azúcar": 105, "Chocolate": 40})
+i5 = Inventario({"Granos de Café": 75, "Leche": 60, "Azúcar": 95, "Chocolate": 35})
+i6 = Inventario({"Granos de Café": 60, "Leche": 50, "Azúcar": 90, "Chocolate": 30})
+i7 = Inventario({"Granos de Café": 55, "Leche": 45, "Azúcar": 80, "Chocolate": 25})
+i8 = Inventario({"Granos de Café": 50, "Leche": 40, "Azúcar": 70, "Chocolate": 20})
+i9 = Inventario({"Granos de Café": 45, "Leche": 35, "Azúcar": 60, "Chocolate": 18})
+i10 = Inventario({"Granos de Café": 40, "Leche": 30, "Azúcar": 55, "Chocolate": 15})
 
 while True:
-    print("\n--MENU SYSTEM OF THE COFFEE STORE 'LOS GOMEZ'--\n")
-    print("1.PERSON")
-    print("2.CUSTOMER")
-    print("3.EMPLOYEE")
-    print("4.BASE PRODUCTS")
-    print("5.DRINKINGS")
-    print("6.DESSERTS")
-    print("7.PURCHASES")
-    print("8.INVENTORY")
-    print("9.EXIT")
+    print("\n--SISTEMA DE MENÚ DE LA CAFETERÍA 'LOS GÓMEZ'--\n")
+    print("1. PERSONA")
+    print("2. CLIENTE")
+    print("3. EMPLEADO")
+    print("4. PRODUCTOS BASE")
+    print("5. BEBIDAS")
+    print("6. POSTRES")
+    print("7. COMPRAS")
+    print("8. INVENTARIO")
+    print("9. SALIR")
 
-    x=int(input("\nSELECT A CLASS TO SEE ITS OBJECTS AND METHODS\n"))
+    x = int(input("\nSELECCIONA UNA CLASE PARA VER SUS OBJETOS Y MÉTODOS\n"))
+    
     match x:
         case 1:
-            print("\n--------PERSON--------\n")
-            print("\nWhat do you want to do?\n")
-            print("\n1.See OBJECTS\n")   
-            print("\n2.Prove login\n")  
-            print("\n3.Prove Update Data\n")  
-            x1=int(input())
+            print("\n--------PERSONA--------\n")
+            print("\n¿Qué quieres hacer?\n")
+            print("\n1.Ver OBJETOS\n")   
+            print("\n2.Probar inicio de sesión\n")  
+            print("\n3.Probar Actualizar Datos\n")  
+            x1 = int(input())
             match x1:
                 case 1:
-                    print("\n--------SEE OBJECTS--------\n")
-                    p1.print_object()
-                    p2.print_object()
-                    p3.print_object()
-                    p4.print_object()
-                    p5.print_object()
-                    p6.print_object()
-                    p7.print_object()
-                    p8.print_object()
-                    p9.print_object()
-                    p10.print_object()
+                    print("\n--------VER OBJETOS--------\n")
+                    p1.imprimir_objeto()
+                    p2.imprimir_objeto()
+                    p3.imprimir_objeto()
+                    p4.imprimir_objeto()
+                    p5.imprimir_objeto()
+                    p6.imprimir_objeto()
+                    p7.imprimir_objeto()
+                    p8.imprimir_objeto()
+                    p9.imprimir_objeto()
+                    p10.imprimir_objeto()
                 case 2:
-                    print("\n-----USE OF LOGIN----- \n")
-                    p1.login("john@mail.com")
+                    print("\n-----USO DE INICIO DE SESIÓN----- \n")
+                    p1.iniciar_sesion("leo@mail.com")
                 case 3:
-                    print("\n-----USE OF UPDATE DATA----- \n")
-                    print("\nUSER ORIGINAL:\n")
-                    p3.print_object()
-                    p3.update_data(1011, "Ricardo", "ricardo@mail.com")
-                    print("\nNEW DATA OF THE USER:\n")
-                    p3.print_object()
+                    print("\n-----USO DE ACTUALIZAR DATOS----- \n")
+                    print("\nUSUARIO ORIGINAL:\n")
+                    p3.imprimir_objeto()
+                    p3.actualizar_datos(1011, "Ricardo", "ricardo@mail.com")
+                    print("\nNUEVOS DATOS DEL USUARIO:\n")
+                    p3.imprimir_objeto()
                 case _:
-                    print("OPTION NOT VALID")      
+                    print("OPCIÓN NO VÁLIDA")
+                    
         case 2:
-            print("\n-------CUSTOMER--------\n")
-            print("\nWhat do you want to do?\n")
-            print("\n1.See OBJECTS\n")   
-            print("\n2.DO PURCHASE\n")  
-            print("\n3.CONSULT HISTORY\n")  
-            print("\n4.USE POINTS\n")  
-            x1=int(input())
+            print("\n-------CLIENTE--------\n")
+            print("\n¿Qué quieres hacer?\n")
+            print("\n1.Ver OBJETOS\n")   
+            print("\n2.REALIZAR COMPRA\n")  
+            print("\n3.CONSULTAR HISTORIAL\n")  
+            print("\n4.USAR PUNTOS\n")  
+            x1 = int(input())
             match x1:
                 case 1:
-                    print("\n--------SEE OBJECTS--------\n")
-                    c1.print_object()
-                    c2.print_object()
-                    c3.print_object()
-                    c4.print_object()
-                    c5.print_object()
-                    c6.print_object()
-                    c7.print_object()
-                    c8.print_object()
-                    c9.print_object()
-                    c10.print_object()
+                    print("\n--------VER OBJETOS--------\n")
+                    c1.imprimir_objeto()
+                    c2.imprimir_objeto()
+                    c3.imprimir_objeto()
+                    c4.imprimir_objeto()
+                    c5.imprimir_objeto()
+                    c6.imprimir_objeto()
+                    c7.imprimir_objeto()
+                    c8.imprimir_objeto()
+                    c9.imprimir_objeto()
+                    c10.imprimir_objeto()
                 case 2:
-                    print("\n-----USE OF DO PURCHASE---- \n")
-                    c1.do_purchase()  
+                    print("\n-----USO DE REALIZAR COMPRA---- \n")
+                    c1.realizar_compra()  
                 case 3:
-                    print("\n-----USE OF CONSULT HISTORY-----\n ")
-                    c1.consult_History()
+                    print("\n-----USO DE CONSULTAR HISTORIAL-----\n ")
+                    c1.consultar_historial()
                 case 4:
-                    print("\n-----USE OF USE POINTS----- \n")
-                    c3.use_points()
+                    print("\n-----USO DE USAR PUNTOS----- \n")
+                    c3.usar_puntos()
                 case _:
-                    print("\nOPTION NOT VALID\n")      
+                    print("\nOPCIÓN NO VÁLIDA\n")
+                    
         case 3:
-            print("\n--------EMPLOYEE--------\n")
-            print("\nWhat do you want to do?\n")
-            print("\n1.See OBJECTS\n")   
-            print("\n2.UPDATE INVENTORY\n")  
-            print("\n3.CHANGE STATUS\n")   
-            x1=int(input())
+            print("\n--------EMPLEADO--------\n")
+            print("\n¿Qué quieres hacer?\n")
+            print("\n1.Ver OBJETOS\n")   
+            print("\n2.ACTUALIZAR INVENTARIO\n")  
+            print("\n3.CAMBIAR ESTATUS\n")   
+            x1 = int(input())
             match x1:
                 case 1:
-                    print("\n--------SEE OBJECTS--------\n")
-                    e1.print_object()
-                    e2.print_object()
-                    e3.print_object()
-                    e4.print_object()
-                    e5.print_object()
-                    e6.print_object()
-                    e7.print_object()
-                    e8.print_object()
-                    e9.print_object()
-                    e10.print_object()
+                    print("\n--------VER OBJETOS--------\n")
+                    e1.imprimir_objeto()
+                    e2.imprimir_objeto()
+                    e3.imprimir_objeto()
+                    e4.imprimir_objeto()
+                    e5.imprimir_objeto()
+                    e6.imprimir_objeto()
+                    e7.imprimir_objeto()
+                    e8.imprimir_objeto()
+                    e9.imprimir_objeto()
+                    e10.imprimir_objeto()
                 case 2:
-                    print("\n-----USE OF UPDATE INVENTORY-----\n ")
-                    e1.update_Inventory(2,"Milk",i1)
+                    print("\n-----USO DE ACTUALIZAR INVENTARIO-----\n ")
+                    e1.actualizar_inventario(2, "Leche", i1)
                 case 3:
-                    print("\n-----CHANGE STATUS-----\n ")
-                    e1.change_status(1)
+                    print("\n-----CAMBIAR ESTATUS-----\n ")
+                    e1.cambiar_estatus(1)
                 case _:
-                    print("\nOPTION NOT VALID\n")      
+                    print("\nOPCIÓN NO VÁLIDA\n")
+                    
         case 4:
-            print("\n-------BASE PRODUCTS--------\n")
-            print("\nWhat do you want to do?\n")
-            print("\n1.See OBJECTS\n")   
-            x1=int(input())
-            match x1:
-                case 1:
-                    print("\n--------SEE OBJECTS--------\n")
-                    bp1.print_object()
-                    bp2.print_object()
-                    bp3.print_object()
-                    bp4.print_object()
-                    bp5.print_object()
-                    bp6.print_object()
-                    bp7.print_object()
-                    bp8.print_object()
-                    bp9.print_object()
-                    bp10.print_object()    
+            print("\n-------PRODUCTOS BASE--------\n")
+            print("\n¿Qué quieres hacer?\n")
+            print("\n1.Ver OBJETOS\n")   
+            x1 = int(input())
+            if x1 == 1:
+                print("\n--------VER OBJETOS--------\n")
+                bp1.imprimir_objeto()
+                bp2.imprimir_objeto()
+                bp3.imprimir_objeto()
+                bp4.imprimir_objeto()
+                bp5.imprimir_objeto()
+                bp6.imprimir_objeto()
+                bp7.imprimir_objeto()
+                bp8.imprimir_objeto()
+                bp9.imprimir_objeto()
+                bp10.imprimir_objeto()    
+                
         case 5:
-                print("\n--------DRINKINGS-------\n")
-                print("\nWhat do you want to do?\n")
-                print("\n1.See OBJECTS\n")   
-                print("\n2.ADD EXTRA\n")  
-                print("\n3.CALCULATE FINAL PRICE\n")  
-                x1=int(input())
-                match x1:
-                    case 1:
-                        print("\n--------SEE OBJECTS------\n")
-                        d1.print_object()
-                        d2.print_object()
-                        d3.print_object()
-                        d4.print_object()
-                        d5.print_object()
-                        d6.print_object()
-                        d7.print_object()
-                        d8.print_object()
-                        d9.print_object()
-                        d10.print_object()
-                    case 2:
-                        print("\n-----USE OF ADD EXTRA---- \n")
-                        d1.add_Extra()
-                    case 3:
-                        print("\n-----USE OF CALCULATE FINAL PRICE-----\n ")
-                        d1.Calculate_Final_Price()
-                    case _:
-                        print("\nOPTION NOT VALID\n")    
+            print("\n--------BEBIDAS-------\n")
+            print("\n¿Qué quieres hacer?\n")
+            print("\n1.Ver OBJETOS\n")   
+            print("\n2.AÑADIR EXTRA\n")  
+            print("\n3.CALCULAR PRECIO FINAL\n")  
+            x1 = int(input())
+            match x1:
+                case 1:
+                    print("\n--------VER OBJETOS------\n")
+                    d1.imprimir_objeto()
+                    d2.imprimir_objeto()
+                    d3.imprimir_objeto()
+                    d4.imprimir_objeto()
+                    d5.imprimir_objeto()
+                    d6.imprimir_objeto()
+                    d7.imprimir_objeto()
+                    d8.imprimir_objeto()
+                    d9.imprimir_objeto()
+                    d10.imprimir_objeto()
+                case 2:
+                    print("\n-----USO DE AÑADIR EXTRA---- \n")
+                    d1.añadir_extra()
+                case 3:
+                    print("\n-----USO DE CALCULAR PRECIO FINAL-----\n ")
+                    d1.calcular_precio_final()
+                case _:
+                    print("\nOPCIÓN NO VÁLIDA\n")
+                    
         case 6:
-            
-            print("\n--------DESSERTS-------\n")
-            print("\nWhat do you want to do?\n")
-            print("\n1.See OBJECTS\n")   
-            x1=int(input())
-            match x1:
-                case 1:
-                    print("\n--------SEE OBJECTS--------\n")
-                    ds1.print_object()
-                    ds2.print_object()
-                    ds3.print_object()
-                    ds4.print_object()
-                    ds5.print_object()
-                    ds6.print_object()
-                    ds7.print_object()
-                    ds8.print_object()
-                    ds9.print_object()
-                    ds10.print_object()
-                case _:
-                    print("\nOPTION NOT VALID\n")      
-
+            print("\n--------POSTRES-------\n")
+            print("\n¿Qué quieres hacer?\n")
+            print("\n1.Ver OBJETOS\n")   
+            x1 = int(input())
+            if x1 == 1:
+                print("\n--------VER OBJETOS--------\n")
+                ds1.imprimir_objeto()
+                ds2.imprimir_objeto()
+                ds3.imprimir_objeto()
+                ds4.imprimir_objeto()
+                ds5.imprimir_objeto()
+                ds6.imprimir_objeto()
+                ds7.imprimir_objeto()
+                ds8.imprimir_objeto()
+                ds9.imprimir_objeto()
+                ds10.imprimir_objeto()
+                
         case 7:
-            print("\n--------PURCHASE-------\n")
-            print("\nWhat do you want to do?\n")
-            print("\n1.See OBJECTS\n")   
-            print("\n2.CALCULATE TOTAL\n")  
-            print("\n3.CHECK STOCK\n")  
-            x1=int(input())
+            print("\n--------COMPRA-------\n")
+            print("\n¿Qué quieres hacer?\n")
+            print("\n1.Ver OBJETOS\n")   
+            print("\n2.CALCULAR TOTAL\n")  
+            print("\n3.VERIFICAR STOCK\n")  
+            x1 = int(input())
             match x1:
                 case 1:
-                    print("\n--------SEE OBJECTS--------\n")
-                    pp1.print_object()
-                    pp2.print_object()
-                    pp3.print_object()
-                    pp4.print_object()
-                    pp5.print_object()
-                    pp6.print_object()
-                    pp7.print_object()
-                    pp8.print_object()
-                    pp9.print_object()
-                    pp10.print_object()
+                    print("\n--------VER OBJETOS--------\n")
+                    pp1.imprimir_objeto()
+                    pp2.imprimir_objeto()
+                    pp3.imprimir_objeto()
+                    pp4.imprimir_objeto()
+                    pp5.imprimir_objeto()
+                    pp6.imprimir_objeto()
+                    pp7.imprimir_objeto()
+                    pp8.imprimir_objeto()
+                    pp9.imprimir_objeto()
+                    pp10.imprimir_objeto()
                 case 2:
-                    print("\n-----USE OF CALCULATE TOTAL----\n ")
-                    pp1.Calculate_total()
+                    print("\n-----USO DE CALCULAR TOTAL----\n ")
+                    pp1.calcular_total()
                 case 3:
-                    print("\n-----USE OF CHECK STOCK-----\n ")
-                    pp2.Check_stock(i1,"Milk")
+                    print("\n-----USO DE VERIFICAR STOCK-----\n ")
+                    pp2.verificar_stock(i1, "Leche")
                 case _:
-                    print("OPTION NOT VALID")      
+                    print("OPCIÓN NO VÁLIDA")
+                    
         case 8:
-            print("\n--------INVENTORY-------\n")
-            print("\nWhat do you want to do?\n")
-            print("\n1.See OBJECTS\n")   
-            print("\n2.REDUCE STOCK\n")  
-            print("\n3.NOTIFY IF THE INVENTORY DOESN'T HAVE STOCK\n")  
-            x1=int(input())
+            print("\n--------INVENTARIO-------\n")
+            print("\n¿Qué quieres hacer?\n")
+            print("\n1.Ver OBJETOS\n")   
+            print("\n2.REDUCIR STOCK\n")  
+            print("\n3.NOTIFICAR SI NO HAY STOCK\n")  
+            x1 = int(input())
             match x1:
                 case 1:
-                    print("\n--------SEE OBJECTS--------\n")
-                    i1.print_object()
-                    i2.print_object()
-                    i3.print_object()
-                    i4.print_object()
-                    i5.print_object()
-                    i6.print_object()
-                    i7.print_object()
-                    i8.print_object()
-                    i9.print_object()
-                    i10.print_object()
+                    print("\n--------VER OBJETOS--------\n")
+                    i1.imprimir_objeto()
+                    i2.imprimir_objeto()
+                    i3.imprimir_objeto()
+                    i4.imprimir_objeto()
+                    i5.imprimir_objeto()
+                    i6.imprimir_objeto()
+                    i7.imprimir_objeto()
+                    i8.imprimir_objeto()
+                    i9.imprimir_objeto()
+                    i10.imprimir_objeto()
                 case 2:
-                    print("\n-----USE OF REDUCE STOCK---- \n")
-                    i1.reduce_Stock("Milk",5)
+                    print("\n-----USO DE REDUCIR STOCK---- \n")
+                    i1.reducir_stock("Leche", 5)
                 case 3:
-                    print("\n-----NOTIFY IF THE INVENTORY DOESN'T HAVE STOCK----- \n")
-                    i1.notify_No_stock("Milk")
+                    print("\n-----NOTIFICAR SI NO HAY STOCK----- \n")
+                    i1.notificar_sin_stock("Leche")
                 case _:
-                    print("\nOPTION NOT VALID\n")      
+                    print("\nOPCIÓN NO VÁLIDA\n")
+                    
         case 9:
-            print("\nTHANKS FOR HAVE USED OUR PROGRAM!\n")
+            print("\n¡GRACIAS POR HABER USADO NUESTRO PROGRAMA!\n")
             break
             
-
         case _:
-            print("\nOPTION NOT VALID\n")        
-
-
-
-
+            print("\nOPCIÓN NO VÁLIDA\n")
