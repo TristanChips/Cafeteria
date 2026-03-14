@@ -1,6 +1,6 @@
 from modelos import *
 
-# --- PERSONAS (Orden cambiado, manteniendo nombre-correo) ---
+# --- PERSONAS ---
 p1 = Persona(1001, "Leo", "leo@mail.com")
 p2 = Persona(1002, "Nina", "nina@mail.com")
 p3 = Persona(1003, "John", "john@mail.com")
@@ -12,7 +12,7 @@ p8 = Persona(1008, "Bob", "bob@mail.com")
 p9 = Persona(1009, "Clara", "clara@mail.com")
 p10 = Persona(1010, "David", "david@mail.com")
 
-# --- CLIENTES (Nombres y correos en diferentes posiciones) ---
+# --- CLIENTES ---
 c1 = Cliente("C001", "Daniel Vega", "daniel@gmail.com", 60, [])
 c2 = Cliente("C002", "Luis Perez", "luis@gmail.com", 200, [])
 c3 = Cliente("C003", "Sofia Ramirez", "sofia@gmail.com", 75, [])
@@ -24,7 +24,7 @@ c8 = Cliente("C008", "Miguel Castro", "miguel@gmail.com", 220, [])
 c9 = Cliente("C009", "Valeria Ortiz", "valeria@gmail.com", 140, [])
 c10 = Cliente("C010", "Laura Ruiz", "laura@gmail.com", 50, [])
 
-# --- EMPLEADOS (Reordenados) ---
+# --- EMPLEADO ---
 e1 = Empleado("P001", "E001", "Lucia Herrera", "lucia@cafe.com", "MESERO")
 e2 = Empleado("P002", "E002", "Jorge Martinez", "jorge@cafe.com", "BARISTA")
 e3 = Empleado("P003", "E003", "Gabriela Soto", "gabriela@cafe.com", "BARISTA")
@@ -97,7 +97,7 @@ i9 = Inventario({"Granos de Café": 45, "Leche": 35, "Azúcar": 60, "Chocolate":
 i10 = Inventario({"Granos de Café": 40, "Leche": 30, "Azúcar": 55, "Chocolate": 15})
 
 while True:
-    print("\n--SISTEMA DE MENÚ DE LA CAFETERÍA 'LOS GÓMEZ'--\n")
+    print("\n--SISTEMA DE MENÚ DE LA CAFETERÍA 'JAUNITO ALCACHOFA'--\n")
     print("1. PERSONA")
     print("2. CLIENTE")
     print("3. EMPLEADO")
